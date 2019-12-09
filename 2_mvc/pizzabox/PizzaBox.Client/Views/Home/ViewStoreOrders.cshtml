@@ -1,0 +1,64 @@
+
+@{
+    ViewData["Title"] = "Store Orders";
+}
+
+<form action="/home/viewstoreorders" method="post">
+  <div class="card text-center text-white bg-secondary">
+    <div class="card-header">
+    Order History
+    </div>
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Stores</label>
+        </div>
+        <select class="custom-select" name="StoreSelected" id="inputGroupSelect01" required>
+          <option selected>Choose Store...</option>
+          @foreach(var s in Model.Stores)
+          {
+            <option name="@s.StoreName" value="@s.StoreName">
+              @s.StoreName |  
+              @s.Address.Street,
+              @s.Address.City,
+              @s.Address.AddressState,
+              @s.Address.ZipCode
+            </option>
+          }
+        </select>
+        <button type="submit" class="btn btn-primary">Change Store</button>
+      </div>
+      @if(ViewBag.Store != null)
+      {
+
+        <table class="table text-white">
+          <thead>
+            <tr>
+              <th scope="col">User ID</th>
+              <th scope="col">Total Cost</th>
+              <th scope="col">Order Date</th>
+              <th scope="col">Pizza Quantity</th>
+            </tr>
+          </thead>
+          @foreach(var o in ViewBag.Store.Orders)
+          {
+            <tbody>
+              <tr>
+                <th scope="row">@o.UserId</th>
+                <td>$@o.TotalCost</td>
+                <td>@o.OrderDate</td>
+                <td>@o.Pizzas.Count</td>
+              </tr>
+            </tbody>
+          }
+          
+        </table>
+      }
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+  </div>
+</form>
+
+
+

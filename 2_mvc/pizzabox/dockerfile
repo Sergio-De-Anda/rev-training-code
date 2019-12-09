@@ -1,0 +1,10 @@
+FROM mcr.microsoft.com/dotnet/core/sdk
+WORKDIR /aspnet
+COPY . .
+RUN dotnet build
+RUN dotnet publish -o dist
+EXPOSE 5000
+ENV ASPNETCORE_URLS=http://*:5000
+CMD [ "dotnet", "dist/PizzaBox.Client.dll" ]
+
+

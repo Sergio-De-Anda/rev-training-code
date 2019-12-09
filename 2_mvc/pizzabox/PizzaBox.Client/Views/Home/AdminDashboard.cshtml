@@ -1,0 +1,29 @@
+@model PizzaBox.Client.Models.AdminViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Welcome Admin</h1>
+</div>
+
+
+<div class=row>
+  <div class="col-sm-6">
+    <div class="card bg-warning">
+      <h5 class="card-header">View Store Orders</h5>
+      <div class="card-body">
+        <a asp-controller="Home" asp-action="viewstoreorders" class="btn btn-success">View Orders</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card bg-info text-white">
+      <h5 class="card-header">View Store Sales</h5>
+      <div class="card-body">
+        <a asp-controller="Home" asp-action="ViewSales" class="btn btn-success">View Sales</a>
+      </div>
+    </div>
+  </div>
+</div>

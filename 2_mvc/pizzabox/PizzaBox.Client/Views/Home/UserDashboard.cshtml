@@ -1,0 +1,42 @@
+@model PizzaBox.Domain.Models.UserModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+
+<div class="card text-center text-white bg-dark">
+  <div class="card-header">
+    Welcome @Model.FirstName
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Thank you for being a valued customer</h5>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+<br/>
+<div class=row>
+  <div class="col-sm-6">
+    <div class="card bg-warning">
+      <h5 class="card-header">Order Now</h5>
+      <div class="card-body">
+        <h5 class="card-title">Start a new order</h5>
+        <p class="card-text">Ordering pizza made simple, fast and convenient.</p>
+        <a asp-controller="Home" asp-action="StartOrder" class="btn btn-success">Start Order</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card bg-info text-white">
+      <h5 class="card-header">Order History</h5>
+      <div class="card-body">
+        <h5 class="card-title">View your previous orders</h5>
+        <p class="card-text">Easiest way to view your transaction history.</p>
+        <a asp-controller="Home" asp-action="ViewOrders" class="btn btn-success">Order History</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+

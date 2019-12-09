@@ -1,0 +1,60 @@
+
+@{
+    ViewData["Title"] = "Order History";
+}
+
+<div class="card text-center text-white bg-secondary">
+  <div class="card-header">
+  Order History
+  </div>
+  <div class="card-body">
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th scope="col">Store</th>
+          <th scope="col">Total Cost</th>
+          <th scope="col">Order Date</th>
+          <th scope="col">Pizza Quantity</th>
+          <th scope="col">Address Delivered</th>
+        </tr>
+      </thead>
+      @foreach(var o in ViewBag.User.Orders)
+      {
+        <tbody>
+          <tr>
+            <th scope="row">@o.StoreName.ToUpper()</th>
+            <td>$@o.TotalCost</td>
+            <td>@o.OrderDate</td>
+            <td>@o.Pizzas.Count</td>
+            <td>
+              @ViewBag.User.Address.Street
+              @ViewBag.User.Address.City,
+              @ViewBag.User.Address.AddressState,
+              @ViewBag.User.Address.ZipCode
+            </td>
+
+
+          </tr>
+        </tbody>
+      }
+      
+    </table>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+<br/>
+<div class=row>
+  <div class="col-sm-12">
+    <div class="card bg-warning">
+      <h5 class="card-header">Order Pizza</h5>
+      <div class="card-body">
+        <h5 class="card-title">Start a new order</h5>
+        <p class="card-text">Order pizza and earn points at the same time.</p>
+        <a asp-controller="Home" asp-action="StartOrder" class="btn btn-success">Start Order</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
