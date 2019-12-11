@@ -1,6 +1,12 @@
+# coverlet
+TestResults/
+
 # dotnet
 **/bin/
 **/obj/
 
 # vagrant
 **/.vagrant/
+
+# nodejs
+node_modules/
