@@ -23,6 +23,32 @@ stages:
               command: 'test'
               projects: '3_devops/Devops.sln'
               arguments: '--collect:"XPlat Code Coverage"'
+          - task: PublishCodeCoverageResult@1
+            inputs:
+              codeCoverageTool: cobertura
+              summaryFileLocation: '**/TestResults/coverage.cobertura.xml'
+  # - stage: analyze
+  #   jobs:
+  #     - job:
+  #       pool:
+  #         vmImage: ubuntu-18.04
+  #       steps:
+  #         - script: dotnet install --global dotnet-sonarscanner
+  #         - script: |
+  #             sonarscanner begin /k:devops-sergio /d:sonar-login=$(SONAR_LOGIN)
+  #             dotnet build
+  #             dotnet test
+  #             sonarscanner end /d:sonar-login=$(SONAR_LOGIN)
+  # - stage: pack
+  #   jobs:
+  #     - job:
+  #       pool:
+  #         vmImage: ubuntu-18.04
+  #       steps:
+  #         -script: docker image build -f 3_devops/dockerfile -t sergiodeanda/devops:$(BUILD_NAME)
+  #         -script: docker login --username $(DOCKER_USER) --password $(DOCKER_TOKEN)
+  #         -script: docker image push sergiodeanda/devops:$(BUILD_NAME)
+
   # - stage: pack
   # - stage: deploy
 
