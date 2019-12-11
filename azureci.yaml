@@ -47,16 +47,16 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          -script: docker image build -f 3_devops/dockerfile -t sergiodeanda/devops:$BUILD_NAME
-          env:
-            BUILD_NAME: $(Build.DefinitionName)
-          -script: docker login --username $DOCKER_USER --password $DOCKER_TOKEN
-          env:
-            DOCKER_TOKEN: $(docker.token)
-            DOCKER_USER: $(docker.user)
-          -script: docker image push sergiodeanda/devops:$BUILD_NAME
-          env:
-            BUILD_NAME: $(Build.DefinitionName)
+          - script: docker image build -f 3_devops/dockerfile -t sergiodeanda/devops:$BUILD_NAME
+            env:
+              BUILD_NAME: $(Build.DefinitionName)
+          - script: docker login --username $DOCKER_USER --password $DOCKER_TOKEN
+            env:
+              DOCKER_TOKEN: $(docker.token)
+              DOCKER_USER: $(docker.user)
+          - script: docker image push sergiodeanda/devops:$BUILD_NAME
+            env:
+              BUILD_NAME: $(Build.DefinitionName)
 
   # - stage: pack
   # - stage: deploy
