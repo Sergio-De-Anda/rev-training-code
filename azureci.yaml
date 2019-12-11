@@ -36,8 +36,8 @@ stages:
           - script: dotnet tool install --global dotnet-sonarscanner
           - script: |
               dotnet sonarscanner begin /k:devops-sergio /d:sonar.login=$SONAR_TOKEN /o:sergio-de-anda
-              dotnet build
-              dotnet test
+              dotnet build 3_devops/Devops.sln
+              dotnet test 3_devops/Devops.sln
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(SONAR_LOGIN)
@@ -48,15 +48,15 @@ stages:
           vmImage: ubuntu-18.04
         steps:
           -script: docker image build -f 3_devops/dockerfile -t sergiodeanda/devops:$BUILD_NAME
-            env:
-              BUILD_NAME: $(Build.DefinitionName)
+          env:
+            BUILD_NAME: $(Build.DefinitionName)
           -script: docker login --username $DOCKER_USER --password $DOCKER_TOKEN
-            env:
-              DOCKER_TOKEN: $(docker.token)
-              DOCKER_USER: $(docker.user)
+          env:
+            DOCKER_TOKEN: $(docker.token)
+            DOCKER_USER: $(docker.user)
           -script: docker image push sergiodeanda/devops:$BUILD_NAME
-            env:
-              BUILD_NAME: $(Build.DefinitionName)
+          env:
+            BUILD_NAME: $(Build.DefinitionName)
 
   # - stage: pack
   # - stage: deploy
