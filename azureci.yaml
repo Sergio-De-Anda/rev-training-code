@@ -33,6 +33,9 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
+          - task: DotnetGlobalToolInstaller@0
+            inputs:
+              name: 'dotnet-sonarscanner'
           - script: dotnet tool install --global dotnet-sonarscanner
           - script: |
               dotnet sonarscanner begin /k:devops-sergio /d:sonar.login=$SONAR_TOKEN /o:sergio-de-anda
@@ -57,7 +60,4 @@ stages:
           - script: docker image push sergiodeanda/devops:$BUILD_NAME
             env:
               BUILD_NAME: $(Build.DefinitionName)
-
-  # - stage: pack
-  # - stage: deploy
 
