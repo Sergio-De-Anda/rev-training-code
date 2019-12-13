@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/3_devops/Devops.Client/Devops.Client.csproj",
+                "${workspaceFolder}/4_soa/RestApi.Client/RestApi.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/3_devops/Devops.Client/Devops.Client.csproj",
+                "${workspaceFolder}/4_soa/RestApi.Client/RestApi.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/3_devops/Devops.Client/Devops.Client.csproj",
+                "${workspaceFolder}/4_soa/RestApi.Client/RestApi.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/3_devops/Devops.Client/bin/Debug/netcoreapp3.0/Devops.Client.dll",
+            "program": "${workspaceFolder}/4_soa/RestApi.Client/bin/Debug/netcoreapp3.1/RestApi.Client.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/3_devops/Devops.Client",
+            "cwd": "${workspaceFolder}/4_soa/RestApi.Client",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
