@@ -1,0 +1,19 @@
+{
+  "name": "5_es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "http-server": "^0.12.0",
+    "typescript": "^3.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc app1.ts",
+    "start": "http-server -p 4000 ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
